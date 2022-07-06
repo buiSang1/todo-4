@@ -1,0 +1,24 @@
+//import gg font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:ital,wght@1,100;1,300&display=swap');
+
+$family-sans-serif: 'Roboto',
+sans-serif;
+
+//update some of bulma's component variables
+$control-border-width: 2px;
+$input-border-color  : transparent;
+$input-shadow        : none;
+
+
+// global style
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background-image: url('./assets/trianglify-lowres.png');
+  background-size : cover;
+
+  overflow-y: auto !important;
+}

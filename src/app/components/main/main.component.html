@@ -1,0 +1,148 @@
+<div class="root">
+  <div class="navbar has-background-dark">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="app-name has-gradient-text">Todo List</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="board">
+    <nb-card>
+      <nb-card-body class="example-items-col">
+        <form [formGroup]="todoForm">
+          <input
+            type="text"
+            formControlName="item"
+            nbInput
+            fullWidth
+            status="Add"
+            placeholder="Add"
+          />
+          <button
+            *ngIf="!isEditEnabled"
+            (click)="addTask()"
+            [disabled]="todoForm.invalid"
+            nbButton
+            hero
+            status="success"
+          >
+            Success
+          </button>
+          <button
+            *ngIf="isEditEnabled"
+            (click)="updateTask()"
+            [disabled]="todoForm.invalid"
+            nbButton
+            hero
+            status="success"
+          >
+            Update
+          </button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+
+    <div class="board-wrapper">
+      <div class="board-columns" cdkDropListGroup>
+        <div class="board-column">
+          <div class="column-title">ToDo</div>
+
+          <div
+            class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="tasks"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div class="task" *ngFor="let item of tasks; let i = index" cdkDrag>
+              {{ item.description }}
+              <div class="btn-function">
+                <button
+                  nbButton
+                  outline
+                  (click)="deleteTask(i)"
+                  status="delete"
+                >
+                  Delete
+                </button>
+                <button
+                  nbButton
+                  outline
+                  (click)="onEdit(item, i)"
+                  status="delete"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-column">
+          <div class="column-title">In Progress</div>
+
+          <div
+            class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="inprogress"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              class="task"
+              *ngFor="let item of inprogress; let i = index"
+              cdkDrag
+            >
+              {{ item.description }}
+              <div class="btn-function">
+                <button
+                  nbButton
+                  outline
+                  (click)="deleteInprogressTask(i)"
+                  status="delete"
+                >
+                  Delete
+                </button>
+                <button
+                  nbButton
+                  outline
+                  (click)="onEdit(item, i)"
+                  status="edit"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-column">
+          <div class="column-title">Completed</div>
+
+          <div
+            class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="completed"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              class="task"
+              *ngFor="let item of completed; let i = index"
+              cdkDrag
+            >
+              {{ item.description }}
+              <div class="btn-function">
+                <button
+                  nbButton
+                  outline
+                  (click)="deleteCompletedTask(i)"
+                  status="delete"
+                >
+                  Delete
+                </button>
+                <button nbButton outline status="completed">Done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -63,15 +63,15 @@
                   (click)="deleteTask(i)"
                   status="delete"
                 >
-                  Delete
+                  <nb-icon icon="trash-2-outline"></nb-icon>
                 </button>
                 <button
                   nbButton
                   outline
                   (click)="onEdit(item, i)"
-                  status="delete"
+                  status="edit"
                 >
-                  Edit
+                  <nb-icon icon="edit-2-outline"></nb-icon>
                 </button>
               </div>
             </div>
@@ -99,7 +99,7 @@
                   (click)="deleteInprogressTask(i)"
                   status="delete"
                 >
-                  Delete
+                  <nb-icon icon="trash-2-outline"></nb-icon>
                 </button>
               </div>
             </div>
@@ -127,9 +127,11 @@
                   (click)="deleteCompletedTask(i)"
                   status="delete"
                 >
-                  Delete
+                  <nb-icon icon="trash-2-outline"></nb-icon>
                 </button>
-                <button nbButton outline status="completed">Done</button>
+                <button nbButton outline status="completed">
+                  <nb-icon icon="done-all-outline"></nb-icon>
+                </button>
               </div>
             </div>
           </div>

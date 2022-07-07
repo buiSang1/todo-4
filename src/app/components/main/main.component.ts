@@ -3,12 +3,13 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Itask } from 'src/app/models/models';
 
 @Component({
   selector: 'app-main',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
@@ -19,6 +20,7 @@ export class MainComponent implements OnInit {
   completed: Itask[] = [];
   updateId!: any;
   isEditEnabled: boolean = false;
+  isOpen: boolean = false;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

@@ -102,7 +102,7 @@
   background   : white;
   border-bottom: solid 1px #ddd;
   border-radius: 4px;
-
+  cursor: all-scroll;
   font-size: 25px;
 
   margin-bottom: 15px;
@@ -116,10 +116,15 @@
 
       button{
         font-size: 25px;
-      }
+        cursor: pointer;
+
+        nb-icon {
+          width: 30px;
+        }
+
   }
 }
-
+}
 .cdk-drag-preview {
   box-sizing   : border-box;
   border-radius: 4px;
@@ -139,3 +144,4 @@
 .tasks-container.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+

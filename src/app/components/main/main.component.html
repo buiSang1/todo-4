@@ -17,7 +17,7 @@
             nbInput
             fullWidth
             status="Add"
-            placeholder="Add"
+            placeholder="Import information"
           />
           <button
             *ngIf="!isEditEnabled"
@@ -25,9 +25,9 @@
             [disabled]="todoForm.invalid"
             nbButton
             hero
-            status="success"
+            status="addTask"
           >
-            Success
+            Add Task
           </button>
           <button
             *ngIf="isEditEnabled"
@@ -35,7 +35,7 @@
             [disabled]="todoForm.invalid"
             nbButton
             hero
-            status="success"
+            status="update"
           >
             Update
           </button>
@@ -100,14 +100,6 @@
                   status="delete"
                 >
                   Delete
-                </button>
-                <button
-                  nbButton
-                  outline
-                  (click)="onEdit(item, i)"
-                  status="edit"
-                >
-                  Edit
                 </button>
               </div>
             </div>

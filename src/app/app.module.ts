@@ -8,12 +8,15 @@ import {
   NbButtonModule,
   NbCardModule,
   NbThemeModule,
+  NbIconModule,
 } from '@nebular/theme';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MainComponent } from './components/main/main.component';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+
 @NgModule({
   declarations: [AppComponent, MainComponent],
   imports: [
@@ -28,6 +31,9 @@ import { MainComponent } from './components/main/main.component';
     DragDropModule,
     FormsModule,
     ReactiveFormsModule,
+    NbEvaIconsModule,
+    NbIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

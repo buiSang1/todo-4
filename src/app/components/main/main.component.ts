@@ -14,7 +14,9 @@ import { Itask } from 'src/app/models/models';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  todoForm!: FormGroup;
+  todoForm =  this.fb.group({
+    item: ['', Validators.required],
+  });
   tasks: Itask[] = [];
   inprogress: Itask[] = [];
   completed: Itask[] = [];
@@ -23,22 +25,19 @@ export class MainComponent implements OnInit {
   isOpen: boolean = false;
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.todoForm = this.fb.group({
-      item: ['', Validators.required],
-    });
-  }
+  ngOnInit(): void {}
   addTask() {
     this.tasks.push({
-      description: this.todoForm.value.item,
+      description: this.todoForm.value.item as string,
       done: false,
     });
     this.todoForm.reset();
   }
   updateTask() {
-    this.tasks[this.updateId].description = this.todoForm.value.item;
+    this.tasks[this.updateId].description = this.todoForm.value.item as string;
     this.tasks[this.updateId].done = false;
     this.todoForm.reset();
+    //chuyển qua lại addTask khi nhấn update
     this.updateId = undefined;
     this.isEditEnabled = false;
   }

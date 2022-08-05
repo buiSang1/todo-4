@@ -9,16 +9,25 @@ import {
   NbCardModule,
   NbThemeModule,
   NbIconModule,
+  NbSelectModule,
 } from '@nebular/theme';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MainComponent } from './components/main/main.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { QuaTangComponent } from './components/qua-tang/qua-tang.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './components/users/users.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, QuaTangComponent, UsersComponent, DialogComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,8 +41,11 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     FormsModule,
     ReactiveFormsModule,
     NbEvaIconsModule,
-    NbIconModule
-
+    NbIconModule,
+    GraphQLModule,
+    HttpClientModule,
+    NbSelectModule,
+    Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
